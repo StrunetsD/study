@@ -3,11 +3,11 @@ import math
 
 class Sphere:
 
-    def __init__(self):
-        self.radius = 1
-        self.x = 0
-        self.y = 0
-        self.z = 0
+    def __init__(self, radius=1, x=0, y=0, z=0):
+        self.radius = radius
+        self.x = x
+        self.y = y
+        self.z = z
 
     def print_radius(self):
         print(f"Radius: {self.radius}")
