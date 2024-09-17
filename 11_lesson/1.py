@@ -3,17 +3,17 @@ class Soda:
     def __init__(self):
         self.name = None
 
-    def representations(self):
-        if self.name is not None:
-            return f"soda with {self.name} taste"
+    def __str__(self):
+        if self.name:
+            return f"У вас газировка с {self.name} вкусом"
         else:
-            return "default soda"
+            return "У вас обычная газировка"
 
 
 def main():
     soda = Soda()
     soda.name = "red"
-    result = soda.representations()
+    result = str(soda)
     print(result)
 
 
