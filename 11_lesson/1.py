@@ -1,21 +1,22 @@
 class Soda:
+    def __init__(self, name=None):
+        self._name = name  
 
-    def __init__(self):
-        self.name = None
+    @property
+    def name(self):
+        return self._name
 
     def __str__(self):
-        if self.name:
-            return f"У вас газировка с {self.name} вкусом"
+        if self._name:
+            return f"У вас газировка с {self._name} вкусом"
         else:
             return "У вас обычная газировка"
 
 
 def main():
-    soda = Soda()
-    soda.name = "red"
+    soda = Soda(name="red")  
     result = str(soda)
     print(result)
-
 
 if __name__ == "__main__":
     main()
