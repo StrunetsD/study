@@ -1,11 +1,14 @@
 class SuperStr(str):
     
-    def is_palindrom(self):
-        return self == self[::-1]
+   def is_palindrom(self):
+        lower_self = self.lower()  
+        return lower_self == lower_self[::-1]
 
     def is_repeatance(self, s):
-        repeats = len(self) // len(s)
-        return repeats * s == self
+        lower_self = self.lower()  
+        lower_s = s.lower() 
+        repeats = len(lower_self) // len(lower_s)
+        return repeats * lower_s == lower_self
 
 
 def main():
