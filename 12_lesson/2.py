@@ -1,51 +1,53 @@
 class BeeAndElephant:
+    def __init__(self, bee_num, elephant_num):
+        self.bee_num = bee_num  
+        self.elephant_num = elephant_num
 
-    def __init__(self,bee_num,elephant_num):
-        self.__bee_num = bee_num
-        self.__elephant_num = elephant_num
+    @property
+    def bee_num(self):
+        return self.__bee_num
+
+    @bee_num.setter
+    def bee_num(self, value):
+        if 0 <= value <= 100:
+            self.__bee_num = value
+        else:
+            raise ValueError("bee_num must be between 0 and 100")
+
+    @property
+    def elephant_num(self):
+        return self.__elephant_num
+
+    @elephant_num.setter
+    def elephant_num(self, value):
+        if 0 <= value <= 100:
+            self.__elephant_num = value
+        else:
+            raise ValueError("elephant_num must be between 0 and 100")
 
     def fly(self):
-        if self.__bee_num >= self.__elephant_num:
-            return True
-        return False
+        return self.bee_num >= self.elephant_num
 
     def trumpet(self):
-        if self.__elephant_num >= self.__bee_num:
-           return "tu-tu-doo-doo"
-        return "wzzzz"
-    
+        return "tu-tu-doo-doo" if self.elephant_num >= self.bee_num else "wzzzz"
+
     def eat(self, meal, value):
         if meal == "nectar":
-            if 0 <= self.__elephant_num < 100:
-                self.__elephant_num = max(0, self.__elephant_num - value)
-            else:
-                raise ValueError("elephant_num is out of range")
-            
-            if 0 <= self.__bee_num < 100: 
-                self.__bee_num = min(100, self.__bee_num + value)
-            else:
-                raise ValueError("bee_num is out of range")
-
+            self.elephant_num = max(0, self.elephant_num - value)
+            self.bee_num = min(100, self.bee_num + value)
         elif meal == "grass":
-            if 0 <= self.__bee_num < 100: 
-                self.__bee_num = max(0, self.__bee_num - value)
-            else:
-                raise ValueError("bee_num is out of range")
-            
-            if 0 <= self.__elephant_num < 100:
-                self.__elephant_num = min(100, self.__elephant_num + value)
-            else:
-                raise ValueError("elephant_num is out of range")
+            self.bee_num = max(0, self.bee_num - value)
+            self.elephant_num = min(100, self.elephant_num + value)
         else:
             raise ValueError("Invalid meal type")
-        return self.__elephant_num, self.__bee_num
+        return self.elephant_num, self.bee_num
 
 def main():
-    beeAndElephant = BeeAndElephant(10, 20)
-    print(beeAndElephant.fly())
-    print(beeAndElephant.trumpet())
-    print(beeAndElephant.eat("nectar", 5))
-    print(beeAndElephant.eat("grass", 5))
+    bee_and_elephant = BeeAndElephant(10, 20)
+    print(bee_and_elephant.fly())
+    print(bee_and_elephant.trumpet())
+    print(bee_and_elephant.eat("nectar", 5))
+    print(bee_and_elephant.eat("grass", 5))
 
 if __name__ == "__main__":
     main()
