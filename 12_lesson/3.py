@@ -18,7 +18,7 @@ class Bus:
         if value > 0:
             self.__speed += value
         elif value < 0:
-            self.__speed += value  # Уменьшаем скорость
+            self.__speed += value  
         return self.__speed
     
     def landingDel(self, surnames):
@@ -27,7 +27,7 @@ class Bus:
                 key = get_key(self.__places, surname)  
                 if key is not None:
                     del self.__places[key] 
-                    self.__free_place += 1  # Увеличиваем количество свободных мест
+                    self.__free_place += 1  
 
     def list_of_surnames(self):
         return self.__surnames
@@ -71,7 +71,7 @@ def main():
             print(f"Текущая скорость: {bus.fixSpeed(value)}")
         elif choice == "2":
             surname = input("Введите фамилию для удаления: ")
-            bus.landingDel([surname])  # Передаем список
+            bus.landingDel([surname]) 
             print(f"Фамилия '{surname}' удалена.")
         elif choice == "3":
             print("Список фамилий:", bus.list_of_surnames())
@@ -80,7 +80,7 @@ def main():
             bus.places(surname)
             print(f"Фамилия '{surname}' добавлена.")
         elif choice == "5":
-            bus.display_places()  # Вывод занятых мест
+            bus.display_places()  
         elif choice == "0":
             break
         else:
