@@ -1,8 +1,8 @@
 class Car:
-    def __init__(self):
-        self.color = None
-        self.car_type = None
-        self.year = None
+    def __init__(self, color, car_type, year):
+        self.color = color
+        self.car_type = car_type
+        self.year = year
 
     def start_engine(self):
         print("Двигатель заведён.")

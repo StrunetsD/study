@@ -1,27 +1,25 @@
 class SuperStr(str):
-
-    def __init__(self, current):
-        self.current = current
-
-    def is_palindrom(self, string):
-        return string == string[::-1]
+    
+   def is_palindrom(self):
+        lower_self = self.lower()  
+        return lower_self == lower_self[::-1]
 
     def is_repeatance(self, s):
-        repeats = len(self.current) // len(s)
-        if repeats * s == self.current:
-            return True
-        else:
-            return False
+        lower_self = self.lower()  
+        lower_s = s.lower() 
+        repeats = len(lower_self) // len(lower_s)
+        return repeats * lower_s == lower_self
 
 
 def main():
-    super_str = SuperStr("bacasdf")
+    super_str = SuperStr("abcabcabc")
 
     if super_str.is_repeatance("abc"):
         print(True)
     else:
         print(False)
-    if super_str.is_palindrom("abccba"):
+
+    if super_str.is_palindrom():
         print(True)
     else:
         print(False)
